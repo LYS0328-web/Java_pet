@@ -329,6 +329,9 @@ function updateDisplay(){
 
             dogVideo.pause();
             dogImage.src = "./dog_stop_morning.png";
+            dogImage.style.display = "block";
+
+            dogVideo.style.display = "none";
         }
 
     }else{
@@ -343,18 +346,24 @@ function updateDisplay(){
             dogVideo.load();
 
             dogVideo.onloadeddata = async () => {
-                try {
-                    await dogVideo.play();
-                } catch (e) {
-                    console.log(e);
-                }
-            };
+            try {
+                await dogVideo.play();
+            } catch (e) {
+                console.log(e);
+            }
+        };
 
         }else{
 
+            dogImage.src =
+                "dog_stop_night.png";
+
+            dogImage.style.display = "block";
+
+            dogVideo.style.display = "none";
+
             dogVideo.pause();
-            dogImage.src = "./dog_stop_night.png";
-            }
+        }
     }
 }
 
