@@ -30,6 +30,12 @@ body{
     background-size:20px 20px;
 }
 
+.paw{
+    width:80%;
+    max-width:350px;
+    margin-bottom:60px;
+}
+
 /* ⭐ 改成直式長方形 */
 .container{
     width:100%;
@@ -65,180 +71,6 @@ body{
     margin-bottom:40px;
     color:#7a5a45;
     text-shadow:3px 3px 0 #c8a98b;
-}
-
-/* ⭐ 像素狗（已調整間距） */
-.pixel-dog{
-    position:relative;
-    width:16px;
-    height:16px;
-
-    transform:scale(12);
-    image-rendering:pixelated;
-
-    margin:40px 0 90px 0;
-}
-
-.pixel-dog::before{
-    content:"";
-    position:absolute;
-    width:1px;
-    height:1px;
-
-    background:#2b2954;
-
-    box-shadow:
-    5px 0 #2b2954,
-    6px 0 #2b2954,
-    9px 0 #2b2954,
-    10px 0 #2b2954,
-
-    4px 1px #2b2954,
-    5px 1px #d9a06a,
-    6px 1px #d9a06a,
-    7px 1px #d9a06a,
-    8px 1px #d9a06a,
-    9px 1px #d9a06a,
-    10px 1px #d9a06a,
-    11px 1px #2b2954,
-
-    3px 2px #2b2954,
-    4px 2px #d9a06a,
-    5px 2px #f2c0c0,
-    6px 2px #d9a06a,
-    7px 2px #d9a06a,
-    8px 2px #d9a06a,
-    9px 2px #d9a06a,
-    10px 2px #f2c0c0,
-    11px 2px #d9a06a,
-    12px 2px #2b2954,
-
-    3px 3px #2b2954,
-    4px 3px #d9a06a,
-    5px 3px #d9a06a,
-    6px 3px #d9a06a,
-    7px 3px #d9a06a,
-    8px 3px #d9a06a,
-    9px 3px #d9a06a,
-    10px 3px #d9a06a,
-    11px 3px #d9a06a,
-    12px 3px #2b2954,
-
-    2px 4px #2b2954,
-    3px 4px #d9a06a,
-    4px 4px #d9a06a,
-    5px 4px #d9a06a,
-    6px 4px #fff6ea,
-    7px 4px #d9a06a,
-    8px 4px #d9a06a,
-    9px 4px #fff6ea,
-    10px 4px #d9a06a,
-    11px 4px #d9a06a,
-    12px 4px #d9a06a,
-    13px 4px #2b2954,
-
-    2px 5px #2b2954,
-    3px 5px #d9a06a,
-    4px 5px #d9a06a,
-    5px 5px #2b2954,
-    6px 5px #d9a06a,
-    7px 5px #d9a06a,
-    8px 5px #d9a06a,
-    9px 5px #2b2954,
-    10px 5px #d9a06a,
-    11px 5px #d9a06a,
-    12px 5px #d9a06a,
-    13px 5px #2b2954,
-
-    2px 6px #2b2954,
-    3px 6px #d9a06a,
-    4px 6px #fff6ea,
-    5px 6px #fff6ea,
-    6px 6px #fff6ea,
-    7px 6px #2b2954,
-    8px 6px #2b2954,
-    9px 6px #fff6ea,
-    10px 6px #fff6ea,
-    11px 6px #fff6ea,
-    12px 6px #d9a06a,
-    13px 6px #2b2954,
-
-    2px 7px #2b2954,
-    3px 7px #d9a06a,
-    4px 7px #fff6ea,
-    5px 7px #fff6ea,
-    6px 7px #2b2954,
-    7px 7px #fff6ea,
-    8px 7px #fff6ea,
-    9px 7px #2b2954,
-    10px 7px #fff6ea,
-    11px 7px #fff6ea,
-    12px 7px #d9a06a,
-    13px 7px #2b2954,
-
-    2px 8px #2b2954,
-    3px 8px #d9a06a,
-    4px 8px #fff6ea,
-    5px 8px #fff6ea,
-    6px 8px #fff6ea,
-    7px 8px #fff6ea,
-    8px 8px #fff6ea,
-    9px 8px #fff6ea,
-    10px 8px #fff6ea,
-    11px 8px #fff6ea,
-    12px 8px #d9a06a,
-    13px 8px #2b2954,
-
-    2px 9px #2b2954,
-    3px 9px #d9a06a,
-    4px 9px #fff6ea,
-    5px 9px #fff6ea,
-    6px 9px #fff6ea,
-    7px 9px #f0d7c5,
-    8px 9px #f0d7c5,
-    9px 9px #fff6ea,
-    10px 9px #fff6ea,
-    11px 9px #fff6ea,
-    12px 9px #d9a06a,
-    13px 9px #2b2954,
-
-    3px 10px #2b2954,
-    4px 10px #d9a06a,
-    5px 10px #fff6ea,
-    6px 10px #fff6ea,
-    7px 10px #fff6ea,
-    8px 10px #fff6ea,
-    9px 10px #fff6ea,
-    10px 10px #fff6ea,
-    11px 10px #d9a06a,
-    12px 10px #2b2954,
-
-    3px 11px #2b2954,
-    4px 11px #d9a06a,
-    5px 11px #d9a06a,
-    6px 11px #fff6ea,
-    7px 11px #fff6ea,
-    8px 11px #fff6ea,
-    9px 11px #fff6ea,
-    10px 11px #d9a06a,
-    11px 11px #d9a06a,
-    12px 11px #2b2954,
-
-    4px 12px #2b2954,
-    5px 12px #d9a06a,
-    6px 12px #d9a06a,
-    7px 12px #fff6ea,
-    8px 12px #fff6ea,
-    9px 12px #d9a06a,
-    10px 12px #d9a06a,
-    11px 12px #2b2954,
-
-    5px 13px #2b2954,
-    6px 13px #d9a06a,
-    7px 13px #2b2954,
-    8px 13px #2b2954,
-    9px 13px #d9a06a,
-    10px 13px #2b2954;
 }
 
 /* 按鈕 */
@@ -294,7 +126,7 @@ body{
     <div class="title-en">BUMi</div>
 
     <!-- 像素狗 -->
-    <div class="pixel-dog"></div>
+    <img src="dog_adult.png" alt="paw" class="paw">
 
     <div class="buttons">
         <a href = 'pet_exercise.html'>
