@@ -230,13 +230,7 @@ button:hover{
 
         <!-- 動畫影片 -->
 
-        <video 
-            id="dogVideo"
-            autoplay
-            muted
-            loop
-            playsinline
-        >
+        <video id="dogVideo" muted loop playsinline webkit-playsinline>
             <source id="videoSource" src="" type="video/mp4">
         </video>
 
@@ -317,31 +311,24 @@ function updateDisplay(){
 
         if(isMoving){
 
-            videoSource.src =
-                "dog_exercising_morning.mp4";
-
+            videoSource.src = "./dog_exercising_morning.mp4";
             dogVideo.load();
 
-            dogImage.style.display = "none";
-
-            dogVideo.style.display = "block";
-
-            dogVideo.play();
-
+            dogVideo.onloadeddata = async () => {
+                try {
+                    await dogVideo.play();
+                } catch (e) {
+                    console.log(e);
+                }
+            };
         }else{
 
             /*
                 沒有運動
             */
 
-            dogImage.src =
-                "dog_stop_morning.png";
-
-            dogImage.style.display = "block";
-
-            dogVideo.style.display = "none";
-
             dogVideo.pause();
+            dogImage.src = "./dog_stop_morning.png";
         }
 
     }else{
@@ -352,28 +339,22 @@ function updateDisplay(){
 
         if(isMoving){
 
-            videoSource.src =
-                "dog_exercising_night.mp4";
-
+            videoSource.src = "./dog_exercising_night.mp4";
             dogVideo.load();
 
-            dogImage.style.display = "none";
-
-            dogVideo.style.display = "block";
-
-            dogVideo.play();
+            dogVideo.onloadeddata = async () => {
+                try {
+                    await dogVideo.play();
+                } catch (e) {
+                    console.log(e);
+                }
+            };
 
         }else{
 
-            dogImage.src =
-                "dog_stop_night.png";
-
-            dogImage.style.display = "block";
-
-            dogVideo.style.display = "none";
-
             dogVideo.pause();
-        }
+            dogImage.src = "./dog_stop_night.png";
+            }
     }
 }
 
