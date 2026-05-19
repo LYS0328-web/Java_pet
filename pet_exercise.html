@@ -281,6 +281,7 @@ let lastMoveTime = Date.now();
 let exerciseSeconds = 0;
 
 let isMoving = false;
+let lastState = false; //加入變數，希望只有改變狀態的時候再切換動畫
 
 /*
     判斷是否白天
@@ -450,14 +451,16 @@ function startMotionDetection(){
 
         if(totalMovement > 15){
 
+        lastMoveTime = Date.now();
+
+        if(!isMoving){
+
             isMoving = true;
 
-            lastMoveTime = Date.now();
-
-            statusText.innerHTML =
-                "偵測到運動中！";
+            statusText.innerHTML = "偵測到運動中！";
 
             updateDisplay();
+        }
         }
 
     });
@@ -474,12 +477,14 @@ function startMotionDetection(){
 
             if(isMoving){
 
-                isMoving = false;
+                if(isMoving){
 
-                statusText.innerHTML =
-                    "目前沒有運動";
+                    isMoving = false;
 
-                updateDisplay();
+                    statusText.innerHTML = "目前沒有運動";
+
+                    updateDisplay();
+                }
             }
         }
 
