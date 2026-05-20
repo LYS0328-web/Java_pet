@@ -256,7 +256,13 @@ function startMotion(){
 
             if(m >= 1 && !waterShown){
                 waterShown = true;
-                document.getElementById("waterPopup").style.display="flex";
+                const popup = document.getElementById("waterPopup");
+                popup.style.display = "flex";
+
+            /* 🔥 手機震動 */
+                if (navigator.vibrate) {
+                    navigator.vibrate([300, 100, 300]);
+                }
             }
 
             updateDisplay();
