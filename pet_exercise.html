@@ -293,7 +293,7 @@ button:hover{
     <!-- 標題 -->
 
     <h1 class="title">
-        運動狗狗偵測
+        和狗狗一起運動吧~
     </h1>
 
     <!-- 畫面區 -->
@@ -335,7 +335,7 @@ button:hover{
     <!-- 按鈕 -->
 
     <button onclick="requestMotionPermission()">
-        開始偵測運動
+        開始運動
     </button>
 
 </div>
@@ -389,20 +389,55 @@ function updateDisplay(){
 
         if(isMoving){
 
-            videoSource.src = "./dog_exercising_morning.mp4";
-            dogVideo.load();
+    /*
+        根據運動時間切換動畫
+    */
 
-            dogImage.style.display = "none";
-            dogVideo.style.display = "block";
+    if(exerciseSeconds >= 180){
 
-            dogVideo.onloadeddata = async () => {
-                try {
-                    await dogVideo.play();
-                } catch (e) {
-                    console.log(e);
-                }
-            };
-        }else{
+        /*
+            1小時以上
+        */
+
+        videoSource.src =
+            "./dog_adult_morning.mp4";
+
+    }else if(exerciseSeconds >= 120){
+
+        /*
+            30分鐘以上
+        */
+
+        videoSource.src =
+            "./dog_teen_morning.mp4";
+
+    }else{
+
+        /*
+            一般狀態
+        */
+
+        videoSource.src =
+            "./dog_exercising_morning.mp4";
+    }
+
+    dogVideo.load();
+
+    dogImage.style.display = "none";
+    dogVideo.style.display = "block";
+
+    dogVideo.onloadeddata = async () => {
+
+        try{
+
+            await dogVideo.play();
+
+        }catch(e){
+
+            console.log(e);
+        }
+    };
+}else{
 
             /*
                 沒有運動
@@ -422,7 +457,21 @@ function updateDisplay(){
 
         if(isMoving){
 
-            videoSource.src = "./dog_exercising_night.mp4";
+            if(exerciseSeconds >= 3600){
+
+                videoSource.src =
+                    "./dog_adult_night.mp4";
+
+            }else if(exerciseSeconds >= 1800){
+
+                videoSource.src =
+                    "./dog_teen_night.mp4";
+
+            }else{
+
+                videoSource.src =
+                "./dog_exercising_night.mp4";
+            }
             dogVideo.load();
 
             dogImage.style.display = "none";
@@ -610,6 +659,7 @@ function startMotionDetection(){
         if(isMoving){
 
             exerciseSeconds++;
+            updateDisplay();
             /*
                 30分鐘提醒喝水
                 30分鐘 = 1800秒
