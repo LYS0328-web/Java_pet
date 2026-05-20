@@ -390,66 +390,79 @@ function updateDisplay(){
 
         if(isMoving){
 
+    let newVideo = "";
+
     /*
         根據運動時間切換動畫
     */
 
-    let newVideo = "";
+    if(exerciseSeconds >= 180){
 
-if(exerciseSeconds >= 180){
+        newVideo =
+            "./dog_adult_morning.mp4";
 
-    newVideo =
-        "./dog_adult_morning.mp4";
+    }else if(exerciseSeconds >= 120){
 
-}else if(exerciseSeconds >= 120){
+        newVideo =
+            "./dog_teen_morning.mp4";
 
-    newVideo =
-        "./dog_teen_morning.mp4";
+    }else{
+
+        newVideo =
+            "./dog_exercising_morning.mp4";
+    }
+
+    /*
+        只有影片不同才切換
+    */
+
+    if(currentVideo !== newVideo){
+
+        currentVideo = newVideo;
+
+        videoSource.src = newVideo;
+
+        dogVideo.load();
+
+        dogVideo.onloadeddata = async () => {
+
+            try{
+
+                await dogVideo.play();
+
+            }catch(e){
+
+                console.log(e);
+            }
+        };
+    }
+
+    /*
+        顯示影片
+    */
+
+    dogImage.style.display = "none";
+
+    dogVideo.style.display = "block";
 
 }else{
 
-    newVideo =
-        "./dog_exercising_morning.mp4";
-}
+    /*
+        沒有運動
+    */
 
-/*
-    只有影片不同才切換
-*/
+    dogVideo.pause();
 
-if(currentVideo !== newVideo){
+    currentVideo = "";
 
-    currentVideo = newVideo;
+    dogImage.src =
+        "./dog_stop_morning.png";
 
-    videoSource.src = newVideo;
+    dogImage.style.display =
+        "block";
 
-    dogVideo.load();
-}
-
-
-    dogVideo.onloadeddata = async () => {
-
-        try{
-
-            await dogVideo.play();
-
-        }catch(e){
-
-            console.log(e);
-        }
-    };
-}
-        dogImage.style.display = "none";
-        dogVideo.style.display = "block";
-        else{
-
-            /*
-                沒有運動
-            */
-
-            dogVideo.pause();
-            dogImage.src = "./dog_stop_morning.png";
-            dogImage.style.display = "block";
-            dogVideo.style.display = "none";
+    dogVideo.style.display =
+        "none";
         }
 
     }else{
@@ -491,9 +504,6 @@ if(currentVideo !== newVideo){
     dogVideo.load();
 }
 
-            dogImage.style.display = "none";
-            dogVideo.style.display = "block";
-
             dogVideo.onloadeddata = async () => {
             try {
                 await dogVideo.play();
@@ -503,16 +513,20 @@ if(currentVideo !== newVideo){
         };
 
         }
-        dogImage.style.display = "block";
-        dogVideo.style.display = "none";
+        dogImage.style.display = "none";
+        dogVideo.style.display = "block";
         else{
-
-            dogImage.src =
-                "dog_stop_night.png";
-
-            
-
             dogVideo.pause();
+            currentVideo = "";
+
+        dogImage.src =
+            "./dog_stop_night.png";
+
+        dogImage.style.display =
+            "block";
+
+        dogVideo.style.display =
+            "none";
         }
     }
 }
