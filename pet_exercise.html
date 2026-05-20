@@ -425,8 +425,6 @@ if(currentVideo !== newVideo){
     dogVideo.load();
 }
 
-    dogImage.style.display = "none";
-    dogVideo.style.display = "block";
 
     dogVideo.onloadeddata = async () => {
 
@@ -439,7 +437,10 @@ if(currentVideo !== newVideo){
             console.log(e);
         }
     };
-}else{
+}
+        dogImage.style.display = "none";
+        dogVideo.style.display = "block";
+        else{
 
             /*
                 沒有運動
@@ -501,13 +502,15 @@ if(currentVideo !== newVideo){
             }
         };
 
-        }else{
+        }
+        dogImage.style.display = "block";
+        dogVideo.style.display = "none";
+        else{
 
             dogImage.src =
                 "dog_stop_night.png";
 
-            dogImage.style.display = "block";
-            dogVideo.style.display = "none";
+            
 
             dogVideo.pause();
         }
